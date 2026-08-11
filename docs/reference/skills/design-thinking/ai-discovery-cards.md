@@ -1,17 +1,17 @@
 ---
 title: ai-discovery-cards
-description: "AI Discovery Cards workshop guidance for Design Thinking for AI Agents ideation after problem framing."
-sidebar_position: 5
+description: AI Discovery Cards workshop guidance for Design Thinking for AI Agents ideation after problem framing.
+sidebar_position: 1
 ms.date: 2026-08-11
 ---
 
 <!-- BEGIN AUTO-GENERATED: metadata -->
-| Field       | Value                                                  |
-|-------------|--------------------------------------------------------|
-| Kind        | skill                                                  |
-| Source      | `.github/skills/design-thinking/ai-discovery-cards`    |
-| Invocation  | Loaded on demand by referencing agents                 |
-| Interactive | No                                                     |
+| Field       | Value                                               |
+|-------------|-----------------------------------------------------|
+| Kind        | skill                                               |
+| Source      | `.github/skills/design-thinking/ai-discovery-cards` |
+| Invocation  | Loaded on demand by referencing agents              |
+| Interactive | No                                                  |
 <!-- END AUTO-GENERATED: metadata -->
 
 ## What it does
