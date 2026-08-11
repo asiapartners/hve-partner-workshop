@@ -58,8 +58,8 @@ after the workshop.
 | [First Research](first-research)                       | Learn the research phase on an existing codebase      |
 | [First Full Workflow](first-workflow)                  | Run Research, Plan, Implement, and Review             |
 | [Growing with HVE](../hve-guide/roles/new-contributor) | Progress toward independent HVE use                   |
-| [Role Guides](../hve-guide/roles/readme)               | Continue with role-specific workflows                 |
-| [RPI Workflow](../rpi/readme)                          | Understand HVE's core delivery methodology            |
+| [Role Guides](../hve-guide/roles/)               | Continue with role-specific workflows                 |
+| [RPI Workflow](../rpi/)                          | Understand HVE's core delivery methodology            |
 
 ## Troubleshooting
 
