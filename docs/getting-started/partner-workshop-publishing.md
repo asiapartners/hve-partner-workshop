@@ -148,7 +148,7 @@ as the source of truth because Partner Center fields can change.
 7. Prepare the Microsoft 365 app package, manifest, icons, and required agent
    files when using Agents Toolkit.
 8. Run manifest and Responsible AI validation.
-9. Sideload into a test tenant with administrator approval.
+9. Side load into a test tenant with administrator approval.
 10. Test expected prompts, prohibited prompts, unauthorized access, missing
     content, dependency failures, prompt injection, and harmful output handling.
 11. Complete security, privacy, accessibility, Responsible AI, and support

@@ -42,10 +42,10 @@ technical participants work from one scenario to produce:
 > certification, tenant approval, and production publication continue after
 > the two-hour session.
 
-<<<<<<< HEAD
-Not sure which bundle of agents you need?
+
+## Not sure which bundle of agents you need?
 Browse the available [Marketplace Packages](packages.md) to compare curated HVE capabilities.
-=======
+
 ## Supporting References
 
 Use the remaining Getting Started material as reference before, during, or
@@ -61,7 +61,6 @@ after the workshop.
 | [Growing with HVE](../hve-guide/roles/new-contributor) | Progress toward independent HVE use |
 | [Role Guides](../hve-guide/roles/) | Continue with role-specific workflows |
 | [RPI Workflow](../rpi/) | Understand HVE's core delivery methodology |
->>>>>>> 8bed022c (feat(docs): update getting started documentation for HVE Partner Workshop)
 
 ## Troubleshooting
 
