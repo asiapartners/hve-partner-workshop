@@ -3,7 +3,7 @@ title: Using the DT Learning Tutor
 description: Guide to using the dt-learning-tutor agent for self-paced Design Thinking education
 sidebar_position: 4
 author: Microsoft
-ms.date: 2026-06-28
+ms.date: 2026-08-11
 ms.topic: tutorial
 keywords:
   - dt-learning-tutor
@@ -97,7 +97,7 @@ The tutor responds by classifying you as beginner-to-intermediate, then launches
 | 1      | Scope Conversations      | Problem        | Frozen vs fluid requests, stakeholder mapping, constraint discovery      |
 | 2      | Design Research          | Problem        | Contextual inquiry, environmental observation, discovery questions       |
 | 3      | Input Synthesis          | Problem        | Affinity clustering, theme development, HMW questions                    |
-| 4      | Brainstorming            | Solution       | Divergent ideation, convergent clustering, constraint-bounded creativity |
+| 4      | Brainstorming            | Solution       | Divergent ideation, convergent clustering, AI Discovery Cards            |
 | 5      | User Concepts            | Solution       | Concept articulation, D/F/V analysis, stakeholder alignment              |
 | 6      | Low-Fidelity Prototypes  | Solution       | Paper prototyping, scrappy enforcement, feedback planning                |
 | 7      | High-Fidelity Prototypes | Implementation | Technical translation, functional prototypes, specifications             |
