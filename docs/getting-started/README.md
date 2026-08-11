@@ -29,21 +29,21 @@ technical participants work from one scenario to produce:
 
 ## Start The Workshop
 
-| Step | Activity | Time |
-|------|----------|------|
-| 1 | [Review the workshop overview and agenda](partner-workshop) | 10 min |
-| 2 | [Set up Codespaces or local VS Code](partner-workshop-setup) | 15 min |
-| 3 | [Complete the PM, SME, design, or technical track](partner-workshop-role-tracks) | 45 min |
-| 4 | [Integrate requirements, backlog, and architecture](partner-workshop-capstone) | 35 min |
-| 5 | [Assess Marketplace and Agent Store readiness](partner-workshop-publishing) | 15 min |
+| Step | Activity                                                                         | Time   |
+|------|----------------------------------------------------------------------------------|--------|
+| 1    | [Review the workshop overview and agenda](partner-workshop)                      | 10 min |
+| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup)                     | 15 min |
+| 3    | [Complete the PM, SME, design, or technical track](partner-workshop-role-tracks) | 45 min |
+| 4    | [Integrate requirements, backlog, and architecture](partner-workshop-capstone)   | 35 min |
+| 5    | [Assess Marketplace and Agent Store readiness](partner-workshop-publishing)      | 15 min |
 
 > [!NOTE]
 > The workshop creates reviewed drafts and publication plans. Azure deployment,
 > certification, tenant approval, and production publication continue after
 > the two-hour session.
 
-
 ## Not sure which bundle of agents you need?
+
 Browse the available [Marketplace Packages](packages.md) to compare curated HVE capabilities.
 
 ## Supporting References
@@ -51,16 +51,15 @@ Browse the available [Marketplace Packages](packages.md) to compare curated HVE 
 Use the remaining Getting Started material as reference before, during, or
 after the workshop.
 
-| Reference | Use It To |
-|-----------|-----------|
-| [Installation Guide](install) | Compare installation methods and resolve setup issues |
-| [Extension Collections](collections) | Choose a focused collection or HVE Core All |
-| [First Interaction](first-interaction) | Practice a one-minute agent interaction |
-| [First Research](first-research) | Learn the research phase on an existing codebase |
-| [First Full Workflow](first-workflow) | Run Research, Plan, Implement, and Review |
-| [Growing with HVE](../hve-guide/roles/new-contributor) | Progress toward independent HVE use |
-| [Role Guides](../hve-guide/roles/) | Continue with role-specific workflows |
-| [RPI Workflow](../rpi/) | Understand HVE's core delivery methodology |
+| Reference                                              | Use It To                                             |
+|--------------------------------------------------------|-------------------------------------------------------|
+| [Installation Guide](install)                          | Compare installation methods and resolve setup issues |
+| [First Interaction](first-interaction)                 | Practice a one-minute agent interaction               |
+| [First Research](first-research)                       | Learn the research phase on an existing codebase      |
+| [First Full Workflow](first-workflow)                  | Run Research, Plan, Implement, and Review             |
+| [Growing with HVE](../hve-guide/roles/new-contributor) | Progress toward independent HVE use                   |
+| [Role Guides](../hve-guide/roles/readme)               | Continue with role-specific workflows                 |
+| [RPI Workflow](../rpi/readme)                          | Understand HVE's core delivery methodology            |
 
 ## Troubleshooting
 
