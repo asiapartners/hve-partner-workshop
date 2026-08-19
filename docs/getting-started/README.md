@@ -46,14 +46,14 @@ Before joining the workshop, each participant should have the following:
 
 ## Workshop Agenda
 
-| Step | Activity                                                                                         | Time   |
-|------|--------------------------------------------------------------------------------------------------|--------|
-| 1    | [Workshop Overview](partner-workshop.md)                                   | 30 min |
-| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                  | 30 min |
-| 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md)              | 90 min |
-| 4    | [Validation & Solution](partner-workshop-solution.md)                | 30 min |
-| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md) | 60 min |
-| 6    | [Handoff to Implementation & Commercialization](partner-workshop-implementation.md)                            | 30 min |
+| Step | Activity                                                                                    | Time   |
+|------|---------------------------------------------------------------------------------------------|--------|
+| 1    | [Workshop Overview](partner-workshop.md)                                                    | 30 min |
+| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                             | 30 min |
+| 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md) | 90 min |
+| 4    | [Validation & Solution](partner-workshop-solution.md)                                       | 30 min |
+| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md)   | 60 min |
+| 6    | [Handoff to Implementation & Commercialization](partner-workshop-implementation.md)         | 30 min |
 
 > [!NOTE]
 > The workshop creates reviewed drafts and publication plans. Azure deployment,
@@ -71,7 +71,7 @@ Use the remaining Getting Started material as reference after the workshop.
 | Reference                                                 | Use It To                                             |
 |-----------------------------------------------------------|-------------------------------------------------------|
 | [Installation Guide](install.md)                          | Compare installation methods and resolve setup issues |
-| [VS Marketplace Packages](packages.md)                       | Choose a focused collection or HVE Core All           |
+| [VS Marketplace Packages](packages.md)                    | Choose a focused collection or HVE Core All           |
 | [First Interaction](first-interaction.md)                 | Practice a one-minute agent interaction               |
 | [First Research](first-research.md)                       | Learn the research phase on an existing codebase      |
 | [First Full Workflow](first-workflow.md)                  | Run Research, Plan, Implement, and Review             |

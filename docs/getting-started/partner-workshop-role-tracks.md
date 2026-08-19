@@ -16,14 +16,14 @@ estimated_reading_time: 10
 
 ## Workshop Agenda
 
-| Step | Activity                                                                                         | Time   |
-|------|--------------------------------------------------------------------------------------------------|--------|
-| 1    | [Workshop Overview](partner-workshop.md)                                   | 30 min |
-| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                  | 30 min |
-| 3    | [**Plan, Envision, Experience, Architecture Design, Backlog**](partner-workshop-role-tracks.md)              | 90 min |
-| 4    | [Validation & Solution](partner-workshop-solution.md)                | 30 min |
-| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md) | 60 min |
-| 6    | [Handoff to Implementation & Commercialization](partner-workshop-implementation.md)                            | 30 min |
+| Step | Activity                                                                                        | Time   |
+|------|-------------------------------------------------------------------------------------------------|--------|
+| 1    | [Workshop Overview](partner-workshop.md)                                                        | 30 min |
+| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                 | 30 min |
+| 3    | [**Plan, Envision, Experience, Architecture Design, Backlog**](partner-workshop-role-tracks.md) | 90 min |
+| 4    | [Validation & Solution](partner-workshop-solution.md)                                           | 30 min |
+| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md)       | 60 min |
+| 6    | [Handoff to Implementation & Commercialization](partner-workshop-implementation.md)             | 30 min |
 
 Use this guide during the role-exercise portion of the workshop. Participants should work from the same scenario, capture assumptions, and leave with a handoff that the next role can use.
 

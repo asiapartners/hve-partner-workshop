@@ -21,14 +21,14 @@ Use this guide when the workshop has produced product goals, architecture direct
 
 ## Workshop Agenda
 
-| Step | Activity                                                                                         | Time   |
-|------|--------------------------------------------------------------------------------------------------|--------|
-| 1    | [Workshop Overview](partner-workshop.md)                                   | 30 min |
-| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                  | 30 min |
-| 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md)              | 90 min |
-| 4    | [Validation & Solution](partner-workshop-solution.md)                | 30 min |
-| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md) | 60 min |
-| 6    | [**Handoff to Implementation & Commercialization**](partner-workshop-implementation.md)                       | 30 min |
+| Step | Activity                                                                                    | Time   |
+|------|---------------------------------------------------------------------------------------------|--------|
+| 1    | [Workshop Overview](partner-workshop.md)                                                    | 30 min |
+| 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                             | 30 min |
+| 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md) | 90 min |
+| 4    | [Validation & Solution](partner-workshop-solution.md)                                       | 30 min |
+| 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md)   | 60 min |
+| 6    | [**Handoff to Implementation & Commercialization**](partner-workshop-implementation.md)     | 30 min |
 
 ## The Execution Pattern
 
@@ -380,13 +380,13 @@ Use this sequence when the project includes Microsoft/CAIRA or CAF alignment:
 
 ### Example mapping
 
-| Workshop decision | CAF or Microsoft adoption lens | Engineering action |
-|---|---|---|
-| Need a secure environment baseline | landing zone and governance patterns | set repo and environment guardrails early |
-| Need clear ownership and deployment separation | operating model and responsibility mapping | define roles, environments, and review gates |
-| Need a reliable modernization path | app or platform modernization guidance | plan a phased implementation and validation gate |
-| Need cost and performance discipline | Well-Architected and cost optimization guidance | size the first milestone conservatively |
-| Need enterprise-grade adoption readiness | CAIRA readiness review | capture rollout, support, and adoption criteria |
+| Workshop decision                              | CAF or Microsoft adoption lens                  | Engineering action                               |
+|------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
+| Need a secure environment baseline             | landing zone and governance patterns            | set repo and environment guardrails early        |
+| Need clear ownership and deployment separation | operating model and responsibility mapping      | define roles, environments, and review gates     |
+| Need a reliable modernization path             | app or platform modernization guidance          | plan a phased implementation and validation gate |
+| Need cost and performance discipline           | Well-Architected and cost optimization guidance | size the first milestone conservatively          |
+| Need enterprise-grade adoption readiness       | CAIRA readiness review                          | capture rollout, support, and adoption criteria  |
 
 ### What to bring into the repo
 
