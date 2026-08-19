@@ -16,6 +16,7 @@ estimated_reading_time: 5
 Start with the [HVE partner workshop](partner-workshop.md). It gives partners new to HVE a shared setup path, role-based exercises, an integrated solution, and publication follow-up.
 
 ## Workshop Goals
+
 During the workshop, project and product managers, subject matter experts, designers, and technical participants work from one scenario to produce:
 
 * Grounded business, user, domain, design, and technical context
@@ -50,7 +51,7 @@ Before joining the workshop, each participant should have the following:
 | 1    | [Workshop Overview](partner-workshop.md)                                   | 30 min |
 | 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                  | 30 min |
 | 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md)              | 90 min |
-| 4    | [Validation & Solutioning](partner-workshop-solution.md)                | 30 min |
+| 4    | [Validation & Solution](partner-workshop-solution.md)                | 30 min |
 | 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md) | 60 min |
 | 6    | [Handoff to Implementation & Commercialization](partner-workshop-implementation.md)                            | 30 min |
 

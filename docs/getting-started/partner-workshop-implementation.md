@@ -15,22 +15,22 @@ estimated_reading_time: 6
 sidebar_position: 5
 ---
 
-# Workshop Agenda
+With your workshop outputs, the next step is to move those outputs into implementation with the RPI workflow so engineering work stays evidence-based, traceable, and reviewable.
+
+Use this guide when the workshop has produced product goals, architecture direction, risks, backlog items, decisions, or design artifacts. The goal is to convert workshop output into a concrete engineering slice that can be implemented and validated without losing the original intent.
+
+## Workshop Agenda
 
 | Step | Activity                                                                                         | Time   |
 |------|--------------------------------------------------------------------------------------------------|--------|
 | 1    | [Workshop Overview](partner-workshop.md)                                   | 30 min |
 | 2    | [Set up Codespaces or local VS Code](partner-workshop-setup.md)                                  | 30 min |
 | 3    | [Plan, Envision, Experience, Architecture Design, Backlog](partner-workshop-role-tracks.md)              | 90 min |
-| 4    | [Validation & Solutioning](partner-workshop-solution.md)                | 30 min |
+| 4    | [Validation & Solution](partner-workshop-solution.md)                | 30 min |
 | 5    | [Microsoft Marketplace and Copilot Agent Store readiness](partner-workshop-publishing.md) | 60 min |
 | 6    | [**Handoff to Implementation & Commercialization**](partner-workshop-implementation.md)                       | 30 min |
 
-With your workshop outputs, the next step is to move those outputs into implementation with the RPI workflow so engineering work stays evidence-based, traceable, and reviewable.
-
-Use this guide when the workshop has produced product goals, architecture direction, risks, backlog items, decisions, or design artifacts. The goal is to convert workshop output into a concrete engineering slice that can be implemented and validated without losing the original intent.
-
-## The execution pattern
+## The Execution Pattern
 
 A workshop is usually the source of context, not the actual implementation boundary. The implementation loop should start by translating the workshop outputs into a clear engineering task, then use the RPI lifecycle to execute that task with verification.
 
@@ -114,9 +114,9 @@ For a brand-new repo, the workshop is not the codebase yet. It is the source of 
 /rpi-research I am starting a new project from workshop outputs. Please review the workshop goals, constraints, architecture direction, and the current repo setup, then identify the technical gaps, dependency risks, and key implementation decisions before I start coding.
 ```
 
-   * This phase is for evidence gathering. It should answer: what do we know, what is still uncertain, and what technical choices need validation?
+* This phase is for evidence gathering. It should answer: what do we know, what is still uncertain, and what technical choices need validation?
 
-6. Run `/rpi-plan` for the greenfield repo
+1. Run `/rpi-plan` for the greenfield repo
    * Convert the workshop brief into a milestone-based implementation plan.
    * Include phases such as repo setup, infrastructure or runtime bootstrapping, the first feature slice, validation, and review.
    * Name the likely files, services, modules, and dependencies involved.
@@ -127,7 +127,7 @@ For a brand-new repo, the workshop is not the codebase yet. It is the source of 
 /rpi-plan Create an implementation plan for the first milestone of this new project using the workshop outputs and the repo setup. Keep the scope narrow, define clear phases, list the likely components and dependencies, and include validation steps and a review gate.
 ```
 
-7. Start implementation with `/rpi-implement`
+1. Start implementation with `/rpi-implement`
    * Execute the approved milestone in small increments.
    * Build the project skeleton, configuration, and first user-visible or service-visible behavior before expanding to broader functionality.
    * Keep implementation tied to the workshop decisions.
@@ -138,7 +138,7 @@ For a brand-new repo, the workshop is not the codebase yet. It is the source of 
 /rpi-implement Execute the approved first milestone from the plan. Scaffold the repo, set up the required runtime and configuration, deliver the first functional slice, and validate the minimum working behavior.
 ```
 
-8. Validate and review with `/rpi-review`
+1. Validate and review with `/rpi-review`
    * Compare the implementation to the workshop intent and the plan.
    * Check whether the first milestone satisfies the acceptance criteria and whether any risk remains open.
    * Capture leftover work, deferred features, or follow-up decisions.
@@ -148,7 +148,7 @@ For a brand-new repo, the workshop is not the codebase yet. It is the source of 
 /rpi-review Review the milestone implementation against the workshop requirements, the approved plan, and the repo setup. Identify any gaps, risks, or remaining follow-up work before the milestone is considered complete.
 ```
 
-9. Prepare the next milestone based on the same evidence pack
+1. Prepare the next milestone based on the same evidence pack
    * Use the first milestone as a foundation, not a final state.
    * Keep the workshop summary and the repo artifacts together so the next team members can understand why the project was built this way.
    * Each iteration should have a clear objective, acceptance criteria, and review evidence.
@@ -230,10 +230,10 @@ This is the most common scenario for engineering teams. In a live repo, the work
 /rpi-research I am working in this existing repository. The workshop outputs say the goal is to add X, with constraints Y and Z. Please compare these workshop outputs to the current codebase, identify the relevant files and services, and tell me what implementation gaps or risks exist before coding begins.
 ```
 
-   * What to expect: the agent reviews the repo, identifies current patterns, checks existing architecture, and points out missing evidence or risky assumptions.
-   * This stage is not implementation. It is evidence gathering so the plan is based on reality.
+* What to expect: the agent reviews the repo, identifies current patterns, checks existing architecture, and points out missing evidence or risky assumptions.
+* This stage is not implementation. It is evidence gathering so the plan is based on reality.
 
-6. Run `/rpi-plan` using the repo and workshop evidence
+1. Run `/rpi-plan` using the repo and workshop evidence
    * Ask for a milestone plan tied to the actual codebase.
    * Tell the agent which service, folder, or feature is in scope.
    * Ask it to reference the repo files it found in the research step.
@@ -243,16 +243,16 @@ This is the most common scenario for engineering teams. In a live repo, the work
 /rpi-plan Using the workshop outputs and the current repository evidence, create an implementation plan for the first milestone of this change. Keep the scope narrow, name the likely files and services involved, call out dependencies, and include validation steps that match this repo's existing patterns.
 ```
 
-   * The plan should define:
-     * objective
-     * in-scope work
-     * out-of-scope work
-     * affected files or services
-     * dependencies
-     * validation approach
-     * review gate
+* The plan should define:
+  * objective
+  * in-scope work
+  * out-of-scope work
+  * affected files or services
+  * dependencies
+  * validation approach
+  * review gate
 
-7. Run `/rpi-implement` only after the plan is acceptable
+1. Run `/rpi-implement` only after the plan is acceptable
    * Use the approved plan and the exact scope from the plan.
    * Keep implementation focused on the current feature slice.
    * Example:
@@ -261,10 +261,10 @@ This is the most common scenario for engineering teams. In a live repo, the work
 /rpi-implement Execute the approved first milestone from the plan. Work only in the identified service, update the necessary files, and validate the affected behavior with the repo’s existing quality gates and tests.
 ```
 
-   * If the project has strong conventions, ask the agent to follow them.
-   * If the repo has tests, build steps, linting, or deployment commands, include them in the validation ask.
+* If the project has strong conventions, ask the agent to follow them.
+* If the repo has tests, build steps, linting, or deployment commands, include them in the validation ask.
 
-8. Run `/rpi-review` when the implementation is ready
+1. Run `/rpi-review` when the implementation is ready
    * Ask the agent to compare the final code to the workshop intent and the plan.
    * Make sure it checks whether the change delivered the promised outcome and whether any risks remain.
    * Example:
@@ -273,7 +273,7 @@ This is the most common scenario for engineering teams. In a live repo, the work
 /rpi-review Review the implementation against the workshop requirements, the approved plan, and the repository's current code patterns. Identify any gaps, risks, or follow-up work needed before marking this milestone complete.
 ```
 
-9. Capture the final work in a small follow-up list
+1. Capture the final work in a small follow-up list
    * Record anything left for a later milestone.
    * Keep the unresolved items explicit instead of silently skipping them.
    * Do not allow workshop assumptions to remain hidden inside code review.
@@ -416,14 +416,14 @@ This keeps the work honest and prevents the implementation loop from hiding unce
 
 ## Recommended resources
 
-* [Getting Started Overview](README)
-* [Your First Full Workflow](first-workflow)
-* [Understanding the RPI Workflow](../rpi/README)
-* [Why the RPI Workflow Works](../rpi/why-rpi)
-* [Using RPI Together](../rpi/using-together)
-* [Engineer Guide](../hve-guide/roles/engineer)
-* [Stage 6: Implementation](../hve-guide/lifecycle/implementation)
-* [DT to RPI Integration](../design-thinking/dt-rpi-integration) if your workshop used a Design Thinking handoff
+* [Getting Started Overview](README.md)
+* [Your First Full Workflow](first-workflow.md)
+* [Understanding the RPI Workflow](../rpi/README.md)
+* [Why the RPI Workflow Works](../rpi/why-rpi.md)
+* [Using RPI Together](../rpi/using-together.md)
+* [Engineer Guide](../hve-guide/roles/engineer.md)
+* [Stage 6: Implementation](../hve-guide/lifecycle/implementation.md)
+* [DT to RPI Integration](../design-thinking/dt-rpi-integration.md) if your workshop used a Design Thinking handoff
 
 ## Common next actions
 
