@@ -51,13 +51,40 @@ Use HVE Core when you want AI-assisted work to be repeatable, standards-aligned,
 
 ## Navigate This Repository
 
-| Goal                            | Go here                                                          |
-|---------------------------------|------------------------------------------------------------------|
-| Start with the partner workshop | [docs/getting-started/README.md](docs/getting-started/README.md) |
-| Learn the core workflow         | [docs/rpi/README.md](docs/rpi/)                                  |
-| Find reusable assets            | [docs/reference/README.md](docs/reference/README.md)             |
-| Customize HVE Core              | [docs/customization/README.md](docs/customization/README.md)     |
-| Contribute changes              | [CONTRIBUTING.md](CONTRIBUTING.md)                               |
+|------------------------------|--------------------------------------------------------------------|
+| Start with the partner workshop | [docs/getting-started/README.md](docs/getting-started/README.md)   |
+| Understand all setup options | [docs/getting-started/install.md](docs/getting-started/install.md) |
+| Learn the core methodology   | [docs/rpi/README.md](docs/rpi/README.md)                           |
+| Browse docs by topic         | [docs/README.md](docs/README.md)                                   |
+| Explore agents               | [.github/CUSTOM-AGENTS.md](.github/CUSTOM-AGENTS.md)               |
+| Explore instructions         | [.github/instructions/README.md](.github/instructions/README.md)   |
+| Explore prompts              | [.github/prompts/README.md](.github/prompts/README.md)             |
+| Explore skills               | [.github/skills/](.github/skills/)                                 |
+
+## Documentation
+
+Full documentation is available at **<https://microsoft.github.io/hve-core/>**.
+
+| Guide                                                            | Description                                      |
+|------------------------------------------------------------------|--------------------------------------------------|
+| [Getting Started](docs/getting-started/README.md)                | Setup and first workflow tutorial                |
+| [HVE Core Identity](docs/getting-started/packages.md)            | Distribution channels and lifecycle disclosure   |
+| [Plugin Inventory](docs/plugins/hve-core.md)                     | One-plugin identity and included capabilities    |
+| [Package Migration](docs/getting-started/package-migration.md)   | Move from retired distribution identities        |
+| [RPI Workflow](docs/rpi/README.md)                               | Deep dive into Research, Plan, Implement, Review |
+| [Contributing](docs/contributing/README.md)                      | Create custom agents, instructions, and prompts  |
+| [Agents Reference](.github/CUSTOM-AGENTS.md)                     | All available agents                             |
+| [Instructions Reference](.github/instructions/README.md)         | All coding instructions                          |
+| [AI Artifacts Architecture](docs/architecture/ai-artifacts.md)   | Prompt engineering framework and artifact types  |
+| [Validation Standards](docs/contributing/ai-artifacts-common.md) | CI/CD validation pipeline and quality gates      |
+
+## Contributing
+
+We appreciate contributions! Whether you're fixing typos or adding new components:
+
+1. Read our [Contributing Guide](CONTRIBUTING.md).
+2. Check out [open issues](https://github.com/microsoft/hve-core/issues).
+3. Join the [discussion](https://github.com/microsoft/hve-core/discussions).
 
 ## Responsible AI
 
