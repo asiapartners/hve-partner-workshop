@@ -3,7 +3,7 @@ title: Partner Workshop Publishing Follow-Up
 description: Frame publication readiness for Azure Managed Application and Microsoft 365 Copilot Agent Store as a workshop handoff
 sidebar_position: 11
 author: Microsoft
-ms.date: 2026-08-17
+ms.date: 2026-08-30
 ms.topic: how-to
 keywords:
   - Azure Managed Applications
@@ -62,6 +62,194 @@ Before building the offer package, capture the commercial and go-to-market conte
 
 > [!NOTE]
 > Treat any commercial route, offer type, or add-on limitation as a verification item until current Microsoft guidance confirms the supported path. The policy matrix can change by agent type and distribution route.
+
+## Guided coaching with the publishing agents
+
+Two coaching agents support this session. Both are patient, ask questions before giving answers, and end each phase with a concrete next action rather than a reading list.
+
+| Agent                           | Use it for                                                                                                                                            | Backing skill                 |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| **Microsoft Marketplace Coach** | The Azure side: SaaS, Managed Application, Container App, or Azure VM offers, pricing, Partner Center configuration, and Azure IP Co-sell eligibility | `ms-marketplace-publish`      |
+| **Copilot Agent Store Coach**   | The Microsoft 365 side: agent type selection, packaging, Agent Store submission, monetization, tenant rollout, and Agent 365 governance               | `copilot-agent-store-publish` |
+
+Select the agent from the agent picker in Copilot Chat, then paste one of the prompts below. Run them in parallel if the team has both an Azure track and an agent track.
+
+> [!TIP]
+> Both coaches work best when you tell them your current state honestly. "We have a prototype and no Partner Center account" produces a far more useful plan than "we're ready to publish."
+
+### Keeping the coaches grounded in current Microsoft guidance
+
+Marketplace programs, offer types, fee percentages, and the Copilot publishing matrix change frequently. Both coaches are configured to look up volatile facts through Microsoft Learn rather than answer from memory, and to cite the source URL with the date retrieved.
+
+Verify this is happening rather than assuming it. Ask directly:
+
+```text
+Before you answer, check current Microsoft documentation and cite your source
+with the date you retrieved it. If you cannot verify this in the current session,
+say so and label the answer unverified.
+```
+
+**What a well-grounded answer looks like:**
+
+* Cites a `learn.microsoft.com` or Partner Center URL
+* Includes a retrieval date, not just a link
+* Distinguishes what the documentation says in general from what your Partner Center dashboard says about your account
+* Says plainly when a lookup failed instead of filling the gap
+
+**Treat these as always-verify, never from memory:**
+
+| Topic                                                  | Why it moves                                            |
+|--------------------------------------------------------|---------------------------------------------------------|
+| Marketplace fee percentage and revenue share           | Varies by offer type, program, and partner status       |
+| Which offer types are transactable or co-sell eligible | Eligibility rules are revised regularly                 |
+| Copilot agent publishing matrix                        | The most volatile item; changes by agent type and route |
+| Manifest and package schema versions                   | Versioned; older versions get deprecated                |
+| Certification and Store validation policies            | Updated without notice                                  |
+| Payout timing, withholding, and tax forms              | Vary by market and change with policy                   |
+
+> [!WARNING]
+> For anything account-specific such as your fee rate, payout schedule, program enrollment, or offer eligibility, Partner Center is authoritative and documentation is not. The coaches will tell you this, but check the dashboard yourself before committing a number to a customer or a business case.
+
+### Microsoft Marketplace Coach: sample prompts
+
+#### Start a Marketplace session and get a personalized plan
+
+```text
+Hi Marketplace Coach! We're building [what the solution does] for [target customer].
+It's currently [idea / prototype / pilot with N customers / in production].
+We're planning an [Azure Managed Application / SaaS / Container App / Azure VM] offer.
+Our team is [size and roles]. What should we do first?
+```
+
+#### Choose the right offer type
+
+```text
+Help me pick the right Marketplace offer type. Our solution [describe what it does].
+Customers need [data residency / OS control / instant provisioning / other constraints].
+Walk me through the trade-offs between Managed Application, SaaS, and Container App
+for our situation.
+```
+
+#### Work out pricing and monetization
+
+```text
+We need a pricing model. Our infrastructure cost is roughly [amount] per customer per
+month, and the value we deliver is [describe the business outcome].
+Should we price per-seat, per-tenant, hourly, or metered? Show me the revenue impact
+of each option after the Marketplace fee.
+```
+
+#### Prepare for Azure IP Co-sell
+
+```text
+Walk me through Azure IP Co-sell eligibility. We have [number] paying customers,
+[describe sales materials you already have], and [describe what you don't have yet].
+What's missing, and what order should we build it in?
+```
+
+#### Partner Center admin session for the Azure offer
+
+```text
+admin-config
+
+I'm the Partner Center admin. Our publisher account is [verified / not yet created].
+We need to configure an Azure Application offer with [describe pricing intent].
+Walk me through account setup, offer creation, and the payout and tax profile.
+```
+
+#### Monetization, payments, and tax questions
+
+```text
+Explain how Marketplace payouts work: when we get paid, what Microsoft withholds,
+and what tax forms we need to complete. Tell me clearly which parts you can answer
+from Microsoft documentation and which parts need our tax advisor.
+```
+
+### Copilot Agent Store Coach: sample prompts
+
+#### Start an Agent Store session and get a personalized plan
+
+```text
+Hi Copilot Agent Store Coach! I'm building an agent that [what it does] for [who].
+It's currently [idea / prototype / working in our tenant / published].
+Our backend is [none yet / Azure SaaS / Managed App / Container App / VM].
+We want to [sell per-seat / offer it free / bundle with our Azure offer]. Where do I start?
+```
+
+#### Choose the agent type
+
+```text
+Help me decide between a declarative agent and a custom engine agent.
+Our agent needs to [describe the behavior], grounded on [describe the data],
+and we [do / do not] have our own model or orchestration logic.
+What are the trade-offs for our case?
+```
+
+#### Design the backend binding
+
+```text
+Our agent needs to call our [describe the service]. Walk me through the options for
+connecting it: API plugin, connector, or custom engine. Include how authentication
+should work if the agent must respect each user's permissions.
+```
+
+#### Prepare the package for submission
+
+```text
+Walk me through the pre-submission validation checklist for our agent package.
+Here's what we have: [list your manifest, icons, privacy policy, terms, screenshots].
+What's missing, and what is most likely to fail certification?
+```
+
+#### Set up monetization and entitlement
+
+```text
+We want to sell our agent per-seat. Explain how license management and seat assignment
+work end to end, and what our backend needs to implement so an unassigned user gets a
+clear upgrade message instead of an error.
+```
+
+#### Partner Center admin session for the agent offer
+
+```text
+admin-config
+
+I'm the Partner Center admin preparing our Copilot agent offer.
+Our publisher is [verified / not verified] and our package is [ready / in progress].
+Walk me through offer creation, package upload, pricing configuration, and submission.
+```
+
+#### Microsoft 365 admin and tenant rollout session
+
+```text
+tenant-rollout
+
+I'm the Microsoft 365 admin. We want to deploy this agent to a pilot group of
+[number] users before org-wide rollout. Walk me through the Integrated Apps review,
+permission consent, pilot deployment, and seat assignment.
+```
+
+#### Agent 365 governance readiness
+
+```text
+Our enterprise customers are asking governance questions about our agent.
+Walk me through Agent 365 readiness: what identity our agent should act as,
+what documentation security reviewers expect, and what we need to build so admins
+can inventory, monitor, and retire it.
+```
+
+### Suggested in-session flow
+
+Timebox this to roughly 30 minutes of the 60-minute publishing block, so the checklists below still get attention.
+
+1. Split the room into the Azure track and the Microsoft 365 agent track.
+2. Each track runs the "start a session" prompt for its coach and answers the coach's questions honestly.
+3. Each track works through the offer-type or agent-type decision until it can state the choice in one sentence.
+4. Both tracks run the monetization prompt and compare answers, because the pricing decisions must be consistent across the two products.
+5. Reconvene and record the decisions, owners, and unresolved questions in the checklists below.
+
+> [!IMPORTANT]
+> Neither coach provides tax, legal, or financial advice. They explain what Microsoft documents and stop where the answer depends on your entity, jurisdiction, or contracts. Route those questions to a qualified professional and record the referral as a workshop action item.
 
 ## Publication readiness checklists
 
