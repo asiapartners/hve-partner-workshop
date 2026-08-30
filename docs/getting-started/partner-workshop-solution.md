@@ -3,7 +3,7 @@ title: Partner Workshop solution
 description: Integrate role outputs into a shared solution pack, backlog, architecture view, and publication-readiness plan
 sidebar_position: 10
 author: Microsoft
-ms.date: 2026-08-17
+ms.date: 2026-08-30
 ms.topic: tutorial
 keywords:
   - workshop solution

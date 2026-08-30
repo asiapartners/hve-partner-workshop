@@ -3,7 +3,7 @@ title: Partner Workshop Role Guide
 description: Structured role-based guide for the HVE partner workshop
 sidebar_position: 9
 author: Microsoft
-ms.date: 2026-08-17
+ms.date: 2026-08-30
 ms.topic: tutorial
 keywords:
   - Project Manager
@@ -69,6 +69,7 @@ This sequence helps each role build on the previous one without waiting for perf
 Use the HVE agents as lightweight helpers for your role. Start with your own draft, then ask an agent to refine or structure it.
 
 * **BRD Builder** or **PRD Builder** for first-draft requirements and a simple structure for business outcomes, scope, and acceptance criteria. In this workshop, the Project Management role should typically own the BRD/PRD draft, while the Subject Matter Expert provides the business context, evidence, and constraints that inform it.
+* **`/rpi-research`** for gathering, testing, and synthesizing evidence before the SME creates the shared context pack. It writes a research artifact under `.copilot-tracking/research/`; include this file directly in your workshop output by referencing it in 01-context-pack.md.
 * **Functional Planner** for turning a draft requirement into a lightweight epic, feature, story, and task hierarchy when the team needs a delivery handoff.
 * **UX UI Designer** for user journeys, pain points, wireframe outline, and experience artifacts.
 * **Design Thinking Coach** for facilitation and discovery.
@@ -102,27 +103,25 @@ Capture the business truth before anyone designs or builds anything.
 
 ### Steps
 
-1. Create a workshop-output folder and a 01-context-pack.md file. Refer to samples\FSI\01-context-pack.md or samples\Retail\01-context-pack.md.
-2. Review the shared scenario and workshop context so your notes stay grounded in the brief.
-3. Gather available evidence such as policy documents, SOPs, process diagrams, notes, document references, PDFs, screenshots, and images.
-4. Record the problem statement, affected users, and business impact.
-5. Separate facts from assumptions, decisions, and open questions.
-6. Capture business rules, known failure cases, and AI guardrails.
-7. If you need structure, ask **BRD Builder** or **PRD Builder** to turn your notes into a simple outline that the Project Management role can refine. Start by pasting your notes into the agent and ask it to draft a problem statement, business goals, scope, assumptions, and acceptance criteria.
-8. Select the context draft and use this prompt in GitHub Copilot Chat:
+1. Review the shared scenario and workshop context so your notes stay grounded in the brief. Refer to [Retail sample](./samples/Retail/01-context-pack.md) or [FSI sample](./samples/FSI/01-context-pack.md) for structure and format.
+2. Gather available evidence such as policy documents, SOPs, process diagrams, notes, document references, PDFs, screenshots, and images.
+3. Run `/rpi-research` on the scenario and available evidence:
 
-```text
-"Use the following notes to draft a concise product requirements document for the solution. Create a clear problem statement, business goals, target users, scope, assumptions, constraints, success metrics, and acceptance criteria. Organize the output so it can be used by design, product, and engineering. Include any relevant business rules, known failure cases, and AI guardrails. Update 02-requirements.md."
-```
+   ```text
+   /rpi-research topic=Relationship Manager Intelligence Experience for FSI workshop context. Research the supplied scenario, policies, process notes, and supporting materials. Identify evidence-backed business facts, affected users, business rules, constraints, known failure cases, AI guardrails, open questions, and credible alternatives or counter-evidence. Keep the scope to context discovery for the workshop.
+   ```
 
-1. When evidence is available, reference supporting documents, PDFs, screenshots, and images as supporting context. Keep the language practical. The result is a simple outline that can be refined into a full PRD.
-2. Save the results in a concise context pack for the next roles, including links or references to supporting documents, PDFs, and images when available.
+4. Review the generated research artifact at `.copilot-tracking/research/`. This is your permanent evidence trail.
+5. Extract and record key findings in a context document: problem statement, affected users, business impact, business rules, known failure cases, and AI guardrails. Reference the research artifact for traceability.
+6. Separate facts from assumptions, decisions, and open questions. Link or reference the supporting material when available.
+7. If you need structure, ask **BRD Builder** or **PRD Builder** to draft a business or product requirements outline. Start by sharing your notes and ask it to create a problem statement, business goals, scope, assumptions, and acceptance criteria.
+8. Use the **Functional Planner** agent to turn approved requirements into a prioritized backlog plan saved to `.copilot-tracking/github-issues/`. This handoff avoids manual file movement and is ready for engineering.
 
 ### Deliverable
 
-1. workshop-output\01-context-pack.md: A context pack that the design and product teams can use to refine the experience and requirements.
-
-2. workshop-output\02-requirements.md: A requirements draft that can be reviewed by engineering and design.
+1. **Research Artifact** (`.copilot-tracking/research/`): Evidence-backed research findings with facts, assumptions, constraints, and open questions.
+2. **Requirements Draft** (`.copilot-tracking/prd-sessions/`): Approved business or product requirements with testable acceptance criteria.
+3. **Backlog Plan** (`.copilot-tracking/github-issues/`): Prioritized work items and hierarchy ready for engineering handoff via the Functional Planner agent.
 
 ## Design Track
 
@@ -192,14 +191,23 @@ workshop-output\03-experience.md: A user experience draft that captures the user
 
 ### Objective
 
-Turn business context and user experience into requirements, priorities, and a backlog draft.
+Turn business context and user experience into requirements, priorities, and a backlog draft with an implementation plan.
 
 ### Steps
 
-1. Review the context pack in workshop-output/01-context-pack.md, workshop-output/02-requirements.md and workshop-output/03-experience.md. Align them to business outcomes, measurable success metrics, functional and non-functional requirements, user stories, acceptance criteria, out-of-scope items, and open assumptions.
-2. Create a backlog outline only if it helps the team move from requirements to implementation. If needed, use a lightweight hierarchy such as epic, feature, story, and task for the first MVP.
-3. Prioritize the first MVP with simple labels such as P0, P1, and P2 only if the team needs a sequencing signal. Keep this lightweight and outcome-focused rather than turning it into a rigid Agile process.
-4. Prepare the requirements and backlog artifacts for publication readiness in Microsoft Marketplace and Microsoft 365 Copilot Agent Store.
+1. Review the context pack in `.copilot-tracking/research/`, `.copilot-tracking/prd-sessions/`, and `.copilot-tracking/dt/`. Align them to business outcomes, measurable success metrics, functional and non-functional requirements, user stories, acceptance criteria, out-of-scope items, and open assumptions.
+2. Run `/rpi-plan` to turn the requirements and context into an implementation plan with phases and phase details:
+
+   ```text
+   /rpi-plan context=[shared scenario]. Requirements: [paste key requirements]. Design: [paste key design decisions]. Create a lightweight implementation plan with phases for the first MVP, including phase objectives, deliverables, and acceptance criteria. Ensure the plan is aligned to publication readiness for Microsoft Marketplace and Microsoft 365 Copilot Agent Store.
+   ```
+
+   This writes to `.copilot-tracking/plans/` and creates a durable record that links to your requirements and design context.
+
+3. Review the generated plan at `.copilot-tracking/plans/` and refine phase details as needed.
+4. Create a backlog outline only if it helps the team move from requirements to implementation. If needed, use a lightweight hierarchy such as epic, feature, story, and task for the first MVP.
+5. Prioritize the first MVP with simple labels such as P0, P1, and P2 only if the team needs a sequencing signal. Keep this lightweight and outcome-focused rather than turning it into a rigid Agile process.
+6. Prepare the requirements and backlog artifacts for publication readiness in Microsoft Marketplace and Microsoft 365 Copilot Agent Store.
    Select the context, requirements, experience and prompt Functional Planner:
 
 ```text
@@ -232,44 +240,44 @@ Turn business context and user experience into requirements, priorities, and a b
 
 ### Deliverable
 
-workshop-output\05-backlog.md: A backlog of features, stories or tasks for translating business outcome to trackable work items.
+1. **Implementation Plan** (`.copilot-tracking/plans/`): A phased implementation plan with objectives, deliverables, and acceptance criteria for each phase.
+2. **GitHub Backlog** (`.copilot-tracking/github-issues/`): A backlog of features, stories, or tasks for translating business outcome to trackable work items, linked to the implementation plan.
 
 ## Technical track
 
 ### Objective
 
-Frame the solution approach, architecture, and publication considerations.
+Frame the solution approach, architecture, and publication considerations aligned to the implementation plan.
 
 ### Steps
 
-1. Review the requirements, and experience draft.
-2. Identify the core services, data sources, and integration points.
-3. Select **System Architecture Reviewer** to help frame a simple solution approach, major tradeoffs, and architecture notes.
+1. Review the requirements, experience draft, and implementation plan at `.copilot-tracking/plans/`.
+2. Identify the core services, data sources, and integration points that support the phased plan.
+3. Select **System Architecture Reviewer** to help frame a simple solution approach, major tradeoffs, and architecture notes that align to each phase of the plan:
 
    * Note deployment, security, and operational considerations.
    * Review the draft for well-architected design and Cloud Adoption Framework guidance.
    * Capture the publication requirements for Microsoft Marketplace and Microsoft 365 Copilot Agent Store readiness, including packaging, discoverability, supportability, and integration expectations.
    * Create a simple Mermaid architecture diagram for the proposed solution.
 
-```text
-"Review the 02-requirements.md and 03-experience.md and help frame a simple solution approach, major tradeoffs, and cloud architecture notes for the first MVP. Update 04-architecture.md. Consider where Microsoft Foundry, Microsoft 365 Copilot, Microsoft Agent 365 Control Plane, Microsoft Entra ID, Microsoft Fabric, Microsoft IQ and Azure Databases fit the solution where appropriate. Review this solution for well-architected design concerns, align the approach to Microsoft Cloud Adoption Framework guidance, and identify any gaps in reliability, security, operational excellence, performance efficiency, and cost optimization for the first MVP. Identify the integration and publication requirements needed to make this solution ready for Microsoft Marketplace and Microsoft 365 Copilot Agent Store, including packaging details, metadata, support expectations, and any required user experience or technical integrations. Create a Mermaid architecture diagram for this solution that shows the main user flow, core services, data sources, and key integrations for the first MVP."
-```
+   ```text
+   "Review the implementation plan at .copilot-tracking/plans/, the requirements, and experience draft. Help frame a simple solution approach for each phase, major tradeoffs, and cloud architecture notes aligned to the phased delivery. Consider where Microsoft Foundry, Microsoft 365 Copilot, Microsoft Agent 365 Control Plane, Microsoft Entra ID, Microsoft Fabric, Microsoft IQ and Azure Databases fit the solution where appropriate. Review this solution for well-architected design concerns, align the approach to Microsoft Cloud Adoption Framework guidance, and identify any gaps in reliability, security, operational excellence, performance efficiency, and cost optimization for the first MVP. Identify the integration and publication requirements needed to make this solution ready for Microsoft Marketplace and Microsoft 365 Copilot Agent Store, including packaging details, metadata, support expectations, and any required user experience or technical integrations. Create a Mermaid architecture diagram for this solution that shows the main user flow, core services, data sources, and key integrations for the first MVP. Link the architecture notes back to the phases in the implementation plan."
+   ```
 
-1. Use Security Planner to review readiness and surface follow-up work.
+4. Use Security Planner to review readiness and surface follow-up work aligned to each phase.
 
-```text
-"Review this solution draft for security risks, deployment considerations, and follow-up actions needed before implementation."
-```
+   ```text
+   "Review this solution draft for security risks, deployment considerations, and follow-up actions needed for each phase in the implementation plan. Link any security-related work back to the appropriate phase."
+   ```
 
-1. Review the mermaid diagram and use natural language to refine it.
-2. (Optional) Instead of GitHub Copilot, use Microsoft 365 Copilot to create an image. In M365 Copilot, attach 04-architecture.md, and create an architecture image from the mermaid diagram for this solution using Azure and Copilot-style icons to represent core services, data sources, user experience layers, and integrations for the first MVP.
+5. Review the mermaid diagram and use natural language to refine it.
+6. (Optional) Instead of GitHub Copilot, use Microsoft 365 Copilot to create an image. In M365 Copilot, attach the implementation plan, and create an architecture image from the mermaid diagram for this solution using Azure and Copilot-style icons to represent core services, data sources, user experience layers, and integrations for the first MVP.
 
-```text
-"Create an architecture image from the mermaid diagram for this solution using Azure and Copilot-style icons to represent core services, data sources, user experience layers, and integrations for the first MVP."
-```
+   ```text
+   "Create an architecture image from the mermaid diagram for this solution using Azure and Copilot-style icons to represent core services, data sources, user experience layers, and integrations for the first MVP. Show how this architecture supports the phased implementation plan at .copilot-tracking/plans/."
+   ```
 
-1. Create the publication-readiness artifact using the same workshop output folder.
-   * Create a new file named `06-publication-readiness.md`.
+7. Create the publication-readiness artifact and link it to the implementation plan.
    * Start with a short summary of the solution, the target user, and the intended publication path.
    * Add a section for solution summary and value proposition.
    * Add a section for product branding, marketing, and positioning, including the customer story and differentiators.
@@ -279,22 +287,21 @@ Frame the solution approach, architecture, and publication considerations.
    * Add a section for a Partner Center Admin publication checklist for Azure IP Co-sell on Marketplace, including publisher setup, offer metadata, legal terms, support contacts, and tax or billing readiness.
    * Add a section for Copilot Agent Store add-on considerations, including any known limits, required tenant approvals, packaging constraints, and whether the agent should be published as a standalone offer or an add-on to an Azure offer.
    * Add a section for user experience and packaging notes, including screenshots, diagrams, and any Microsoft 365 Copilot integration value.
-   * Add a section for technical readiness, including core services, integrations, deployment model, and prerequisites.
+   * Add a section for technical readiness, including core services, integrations, deployment model, and prerequisites aligned to the implementation plan phases.
    * Add a section for security, privacy, and governance, including access controls, data handling, and Responsible AI guardrails.
-   * Add a section for support and operations, including ownership, known limitations, and rollout expectations.
-   * Add a closing checklist for publication readiness, including the owners and follow-up items that still need attention.
+   * Add a section for support and operations, including ownership, known limitations, and rollout expectations per phase.
+   * Add a closing checklist for publication readiness, including the owners and follow-up items that still need attention, linked back to the implementation plan.
 
    ```text
-   "Review the requirements, experience draft, architecture notes, and backlog outline for the relationship manager scenario. Create a concise publication-readiness document in 06-publication-readiness.md that captures the solution summary, target user, value proposition, product branding and marketing notes, geographic coverage and market scope, monetization and taxation considerations, a Lean Business Canvas summary, Partner Center Admin publication checklist for Azure IP Co-sell on Marketplace, Copilot Agent Store add-on readiness, user experience and packaging notes, technical readiness, security and privacy considerations, support and operations expectations, and a simple checklist of remaining publication work. Focus on what is needed for Microsoft Marketplace and Microsoft 365 Copilot Agent Store readiness, keep the output practical and workshop-friendly, and identify any owners or follow-up items that still need attention."
+   "Review the implementation plan at .copilot-tracking/plans/, the requirements, experience draft, architecture notes, and backlog outline for the relationship manager scenario. Create a concise publication-readiness document that captures the solution summary, target user, value proposition, product branding and marketing notes, geographic coverage and market scope, monetization and taxation considerations, a Lean Business Canvas summary, Partner Center Admin publication checklist for Azure IP Co-sell on Marketplace, Copilot Agent Store add-on readiness, user experience and packaging notes, technical readiness per phase, security and privacy considerations, support and operations expectations per phase, and a simple checklist of remaining publication work. Focus on what is needed for Microsoft Marketplace and Microsoft 365 Copilot Agent Store readiness, keep the output practical and workshop-friendly, and identify any owners or follow-up items that still need attention. Link all phase-specific work back to the implementation plan at .copilot-tracking/plans/."
    ```
 
-2. Share the output with the rest of the team.
+8. Share the output with the rest of the team.
 
 ### Deliverable
 
-1. workshop-output\04-architecture.md: A technical draft with architecture notes, risks, and next steps, including a reference to the architecture diagram.
-
-2. workshop-output\06-publication-readiness.md: A concise publication-readiness draft that captures the target route, technical readiness, governance needs, and follow-up work.
+1. **Architecture Notes** (`.copilot-tracking/plans/`): Architecture design notes aligned to each phase of the implementation plan, including risks, tradeoffs, and integration requirements.
+2. **Publication Readiness** (`.copilot-tracking/details/`): A concise publication-readiness draft that captures the target route, technical readiness per phase, governance needs, and follow-up work linked to the implementation plan.
 
 ## Working session reminder
 

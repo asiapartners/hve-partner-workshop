@@ -2,7 +2,7 @@
 title: Start implementing from workshop outputs
 description: Turn workshop research, decisions, and backlog outputs into engineering execution using RPI agents
 author: Microsoft
-ms.date: 2026-08-18
+ms.date: 2026-08-30
 ms.topic: tutorial
 keywords:
   - workshop
@@ -45,6 +45,72 @@ The practical sequence is:
 
 > [!TIP]
 > If you want one entry point instead of direct phase prompts, start with `/rpi` or `RPI Agent`. If you want a smaller, more focused action, use a direct phase command like `/rpi-plan`.
+
+## When to Use `/rpi-plan`
+
+Use `/rpi-plan` when you have:
+
+* Research completed or evidence gathered: `/rpi-research` results, workshop outputs, or existing codebase knowledge that answers "what problem are we solving?" and "what constraints apply?"
+* Clear scope for the next milestone: You know which feature, service, or capability is in scope and what success looks like
+* A need to convert goals into actionable tasks: You have business or product direction but need an engineering plan that names files, services, phases, and validation steps
+* Existing codebase or project structure: You're working in a repo with patterns, tests, build tools, and deployment infrastructure you want the plan to reference
+* A decision gate before implementation: You want to review and approve a plan before starting code changes
+
+Do NOT use `/rpi-plan` if:
+
+* You have not yet gathered research or evidence about what needs to be built
+* The scope is completely undefined or the goals are still being debated
+* You just want to brainstorm architecture without committing to a plan
+* You're looking for general design guidance (use a design-thinking or architecture agent instead)
+
+What `/rpi-plan` produces:
+
+* A milestone-level implementation roadmap tied to your actual codebase
+* Named files, services, modules, and dependencies that will change
+* Phases and checkpoints so progress is measurable
+* Validation steps and review criteria so you know when the milestone is done
+* Out-of-scope list so expectations are clear
+
+Next steps after `/rpi-plan`:
+
+* Review the plan and approve it (or ask for revisions)
+* Share it with the team so everyone agrees on the milestone boundaries
+* Use the approved plan as input to `/rpi-implement`
+* Reference the plan during `/rpi-review` to verify implementation matched intent
+
+## When to Use `/rpi-review`
+
+Use `/rpi-review` when you have:
+
+* Implementation complete or at a milestone boundary: Code is written, tested, deployed, or ready for acceptance review
+* An approved plan to compare against: You have a concrete implementation plan, milestone criteria, or acceptance definition from `/rpi-plan` or workshop output
+* A need to verify intent was honored: You want to check that the implementation satisfies the original goals, constraints, and design decisions
+* Changes that may have diverged from the plan: You discovered new requirements, took shortcuts, or made architectural adjustments during implementation that need to be captured
+* A gate before moving to the next milestone: You want independent verification before declaring success and planning follow-up work
+
+Do NOT use `/rpi-review` if:
+
+* Implementation has not started or is not ready for review
+* You have no plan or criteria to review against (use `/rpi-plan` first)
+* You're looking for live code review during development (use code-review agents or `/rpi-implement` instead)
+* You want to brainstorm improvements instead of verify delivery (use design-thinking or architecture agents instead)
+* The milestone scope is still undefined or acceptance criteria are still being debated
+
+What `/rpi-review` produces:
+
+* A structured assessment comparing implementation to the original workshop intent and milestone plan
+* Documented gaps, deviations, and risks with severity and evidence
+* Validation evidence: which acceptance criteria were met, which may need follow-up, and what is ready for the next milestone
+* A clear list of completed work, deferred features, and follow-up decisions
+* Routes for follow-up: backlog items for remaining work, ADRs for deviations, or research needs if new constraints emerged
+
+Next steps after `/rpi-review`:
+
+* Approve the milestone if all acceptance criteria are met (or ask for specific fixes)
+* Document any deviations as architecture decisions (ADRs) if they represent significant changes from the plan
+* Route any deferred work into the backlog with clear priority and dependency information
+* Use the review evidence as the starting point for the next milestone plan
+* If significant gaps remain, loop back to `/rpi-implement` or `/rpi-plan` before declaring the milestone complete
 
 ## What part of the HVE repo to import
 
@@ -329,6 +395,189 @@ If you can answer these questions, the repo implementation phase is much more li
 * Trying to implement the entire roadmap in one pass
 * Skipping `/rpi-research` when the workshop assumptions are not yet confirmed
 * Using `/rpi-implement` without a plan or review gate
+
+## Scenario 3: Workshop in one repository, implementation in another
+
+Use this path when the team runs the workshop in a shared or workshop repository, exports the artifacts, and then implements in their own engineering repository.
+
+This scenario is common when:
+
+* The workshop is facilitated in a shared HVE Partner Workshop repo or a customer-managed workshop space
+* The team wants to keep workshop context separate from implementation code
+* Multiple teams are using the same workshop repo and each needs their own implementation space
+* You want workshop artifacts to be read-only reference during implementation
+
+### Step-by-step
+
+1. Complete the workshop and confirm all artifacts are ready
+   * Verify that the `.copilot-tracking/` directories contain complete research, PRD, plans, and backlog items
+   * Check that all design artifacts, ADRs, and architecture diagrams are finalized
+   * Ensure the backlog is prioritized and acceptance criteria are clear
+   * Example artifacts to confirm:
+     * `.copilot-tracking/research/`: research findings and evidence
+     * `.copilot-tracking/prd-sessions/requirements.md`: approved requirements
+     * `.copilot-tracking/plans/`: implementation plan and phase details
+     * `.copilot-tracking/dt/`: design thinking outputs and user journeys
+     * `docs/planning/adrs/`: architecture decision records
+     * `.copilot-tracking/github-issues/`: prioritized backlog
+
+2. Copy workshop artifacts to your implementation repository
+   * Clone or create your implementation repository (e.g., your existing solutions repo)
+   * Create a `/docs/workshop-artifacts/` or `.copilot-tracking/workshop-reference/` directory at the root
+   * Copy the following directories and files:
+
+   ```text
+   your-repo/
+     docs/
+       workshop-artifacts/
+         research/           # from .copilot-tracking/research/
+         requirements.md     # from .copilot-tracking/prd-sessions/requirements.md
+         plan.md            # from .copilot-tracking/plans/
+         architecture/      # from docs/planning/adrs/
+         design/            # from .copilot-tracking/dt/
+   ```
+
+   * Keep the original folder structure so references are predictable
+   * Do not copy CI/CD workflows or repo-specific tooling from the workshop repo
+
+3. Create an implementation context document
+   * At the root of your repo, create `WORKSHOP_CONTEXT.md` or similar
+   * Link to all imported workshop artifacts
+   * Summarize the key outcomes, constraints, and non-goals
+   * List the first-milestone acceptance criteria
+   * Document any assumptions that need validation in your repo environment
+   * Example structure:
+
+   ```markdown
+   # Workshop Context and Implementation Plan
+
+   ## Workshop Outcomes
+   [Link to: docs/workshop-artifacts/requirements.md]
+
+   ## Architecture Decisions
+   [Link to: docs/workshop-artifacts/architecture/]
+
+   ## First Milestone
+   [Description and acceptance criteria]
+
+   ## Key Assumptions to Validate
+   - [assumption 1]
+   - [assumption 2]
+
+   ## Backlog
+   [Link to: docs/workshop-artifacts/backlog.md or GitHub issues]
+   ```
+
+4. Run `/rpi-research` to validate workshop assumptions in your repo
+   * Open your implementation repo in VS Code
+   * Reference the workshop artifacts and ask the agent to assess them against your actual codebase
+   * Example prompt:
+
+   ```text
+   /rpi-research I am working in an existing repository that received workshop artifacts. 
+   Please review the workshop requirements [link to WORKSHOP_CONTEXT.md] and the current 
+   codebase to identify:
+   1. Whether the workshop assumptions are valid in our environment
+   2. What technical choices or dependencies need to be adjusted
+   3. What implementation gaps or risks exist before we start coding
+   4. Which files or services will need to change
+   ```
+
+   * What to expect: the agent compares workshop intent to your actual repo, flags environment differences, and confirms the implementation baseline
+
+5. Run `/rpi-plan` using the workshop artifacts as input
+   * Ask the agent to create a milestone plan based on the workshop and your repo structure
+   * Reference both the workshop requirements and your codebase
+   * Example prompt:
+
+   ```text
+   /rpi-plan Create an implementation plan for the first milestone of this project using:
+   - Workshop requirements: [link to requirements.md]
+   - Current repository structure and patterns
+   - Architecture decisions: [link to ADRs]
+   
+   The plan should be tied to the actual files and services in this repo, include validation 
+   steps using our existing test and build infrastructure, and include a review gate before 
+   moving to the next milestone.
+   ```
+
+   * The plan becomes your implementation roadmap in your repo
+
+6. Run `/rpi-implement` to execute the approved milestone
+   * Reference the approved plan and the workshop artifacts as context
+   * Work only within your repo; do not modify the workshop repo
+   * Example prompt:
+
+   ```text
+   /rpi-implement Execute the approved first milestone from the plan. 
+   Follow the implementation sequence defined in the plan, update only the identified 
+   files and services, validate using the repository's existing build, test, and 
+   deployment methods, and confirm the changes meet the workshop acceptance criteria 
+   from [link to requirements].
+   ```
+
+   * Implementation happens entirely in your repo with full access to your codebase, tests, CI/CD, and deployment infrastructure
+
+7. Run `/rpi-review` when the implementation is ready
+   * Compare the result to both the workshop intent and your repo's patterns
+   * Confirm that implementation choices align with the approved plan
+   * Example prompt:
+
+   ```text
+   /rpi-review Review the milestone implementation against:
+   1. The workshop requirements: [link to requirements.md]
+   2. The approved implementation plan
+   3. The repository's code patterns and quality gates
+   
+   Identify any gaps, risks, or follow-up work needed before this milestone is considered complete.
+   ```
+
+### Prompt flow for workshop-in-one-repo, implementation-in-another
+
+```text
+/rpi-research Validate workshop assumptions [link to WORKSHOP_CONTEXT.md] against our actual codebase and identify technical gaps or environment adjustments needed.
+
+/rpi-plan Create a milestone plan using the workshop requirements [link] and our repository structure. Keep it narrow and include validation steps.
+
+/rpi-implement Execute the approved plan in our repository, following our existing patterns and quality gates.
+
+/rpi-review Review the implementation against the workshop intent [link to requirements.md], the plan, and our code patterns. Identify remaining work.
+```
+
+### Checklist for artifact handoff
+
+Before starting implementation, confirm:
+
+* All workshop artifacts are copied to your repo under a stable, documented location
+* A `WORKSHOP_CONTEXT.md` or equivalent exists and links to all artifacts
+* The first milestone is clearly defined in the workshop requirements
+* The implementation repository is open and ready
+* You have confirmed who will run the implementation steps (person or team)
+* Any environment-specific setup (credentials, accounts, infrastructure) is ready
+* Your team understands which workshop decisions are final versus open for revision
+
+### Common mistakes when moving artifacts across repos
+
+* Not copying the full artifact set (missing research, ADRs, or design artifacts)
+* Losing context by not creating a clear WORKSHOP_CONTEXT.md or artifact index
+* Skipping `/rpi-research` because "the workshop already validated everything"
+* Treating workshop output as a checklist rather than as contextual evidence
+* Forgetting to validate workshop assumptions in your actual environment before coding
+* Running `/rpi-implement` without an approved `/rpi-plan` from the new repo
+* Editing workshop artifacts during implementation instead of keeping them read-only reference
+
+### What to do if workshop assumptions change during implementation
+
+If your team discovers that a workshop assumption is no longer valid in your actual environment:
+
+1. Do not silently adjust the code to work around the mismatch
+2. Document the assumption that changed and why
+3. Record the change in your `.copilot-tracking/changes/` directory or a similar artifact
+4. Return to `/rpi-plan` to adjust the implementation approach
+5. Update `WORKSHOP_CONTEXT.md` to reflect the discovery
+6. Move forward with the revised plan
+
+This keeps the implementation honest and helps future team members understand why the code is the way it is.
 
 ## Integrating with Microsoft/CAIRA and reusing CAF accelerators
 

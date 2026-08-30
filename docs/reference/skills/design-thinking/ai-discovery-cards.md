@@ -2,7 +2,13 @@
 title: ai-discovery-cards
 description: AI Discovery Cards workshop guidance for Design Thinking for AI Agents ideation after problem framing.
 sidebar_position: 1
-ms.date: 2026-08-11
+author: Microsoft
+ms.date: 2026-08-30
+ms.topic: reference
+keywords:
+  - skill
+  - design-thinking
+  - ai-discovery-cards
 ---
 
 <!-- BEGIN AUTO-GENERATED: metadata -->

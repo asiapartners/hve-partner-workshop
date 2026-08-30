@@ -3,7 +3,7 @@ title: Partner Workshop Setup
 description: Shared Codespaces and local VS Code setup instructions for the HVE partner workshop
 sidebar_position: 8
 author: Microsoft
-ms.date: 2026-08-17
+ms.date: 2026-08-30
 ms.topic: tutorial
 keywords:
   - GitHub Codespaces

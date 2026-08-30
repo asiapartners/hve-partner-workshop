@@ -3,7 +3,7 @@ title: HVE Partner Workshop
 description: Workshop for partners to create requirements, context, a backlog, Azure architecture, and publication plans with HVE Core
 sidebar_position: 7
 author: Microsoft
-ms.date: 2026-08-17
+ms.date: 2026-08-30
 ms.topic: tutorial
 keywords:
   - partner workshop
@@ -41,25 +41,35 @@ By the end of the facilitated session, the team can:
 * Explain the steps and approval gates for an Azure Managed Application offer on Microsoft Marketplace
 * Explain the supported routes to the Microsoft 365 Copilot Agent Store
 
-The team should leave with these artifacts:
+The team should leave with these artifacts in production locations:
 
 ```text
-workshop-output/
-|-- 01-context-pack.md
-|-- 02-requirements.md
-|-- 03-experience.md
-|-- 04-architecture.md
-|-- 05-backlog.md
-`-- 06-publication-readiness.md
+.copilot-tracking/research/
+  `-- [rpi-research artifacts]
+.copilot-tracking/prd-sessions/
+  `-- requirements.md
+.copilot-tracking/plans/
+  `-- [implementation plan and phase details]
+.copilot-tracking/details/
+  `-- [phase-specific architecture and publication notes]
+.copilot-tracking/dt/
+  `-- [design thinking outputs]
+docs/planning/adrs/
+  `-- [architecture decision records]
+.copilot-tracking/github-issues/
+  `-- [backlog plan]
 ```
 
-| Outcome                       | Complete In Workshop                  | Continue After Workshop                                |
-|-------------------------------|---------------------------------------|--------------------------------------------------------|
-| Context and user requirements | Reviewed draft                        | Customer validation and approval                       |
-| Backlog                       | Prioritized draft or planning handoff | Create approved external work items                    |
-| Architecture Design           | Reviewed conceptual Mermaid diagram   | Implement and validate infrastructure                  |
-| Azure Managed Application     | Package and offer readiness plan      | Build, test, certify, and publish offer on Marketplace |
-| Microsoft 365 Copilot Agent   | Experience and distribution plan      | Build, test, approve, and publish agent                |
+| Outcome                      | Workshop Artifact Location          | Post-Workshop Path                              |
+|------------------------------|-------------------------------------|-------------------------------------------------|
+| Context and research         | `.copilot-tracking/research/`       | Customer validation and approval                |
+| Requirements and PRD         | `.copilot-tracking/prd-sessions/`   | Refine and lock PRD for development             |
+| Implementation Plan          | `.copilot-tracking/plans/`          | Coordinate team delivery across phases          |
+| Architecture and Publication | `.copilot-tracking/details/`        | Implement and validate per-phase deliverables   |
+| Design and UX                | `.copilot-tracking/dt/`             | Implement UI and validate with users            |
+| Architecture Decisions       | `docs/planning/adrs/`               | Implement and validate infrastructure           |
+| GitHub Backlog               | `.copilot-tracking/github-issues/`  | Create approved external work items             |
+| Publication Plan             | `.copilot-tracking/[session-type]/` | Execute marketplace and agent store publication |
 
 > [!IMPORTANT]
 > HVE Core custom agents run in GitHub Copilot and VS Code. They are not
@@ -85,13 +95,15 @@ Review the broader [HVE role guides](../hve-guide/roles/) after the workshop for
 
 Use this scenario when participants do not bring a project:
 
-> A partner wants to offer a Service Knowledge Assistant to enterprise
-> customers. Support specialists ask questions in Microsoft 365 Copilot and
-> receive grounded answers from approved product and service documents. Each
-> customer deploys the Azure data, search, model, API, identity, and monitoring
-> resources into its own subscription through an Azure Managed Application.
-> The solution must preserve source citations, respect user access, avoid using
-> customer content for model training, and provide operational audit evidence.
+> A financial services partner wants to offer a Relationship Manager Intelligence
+> Experience to enterprise customers. Relationship managers ask questions in
+> Microsoft 365 Copilot and receive consolidated account insights, risk indicators,
+> growth opportunities, and recommended next actions from CRM systems, email,
+> transaction history, and internal knowledge sources. Each customer deploys the
+> Azure data, search, model, API, identity, and monitoring resources into its own
+> subscription through an Azure Managed Application. The solution must preserve
+> source citations, respect user access controls per account, avoid using customer
+> data for model training, and provide operational audit evidence.
 
 Do not use production customer data during the workshop. Use synthetic or public sample content.
 
