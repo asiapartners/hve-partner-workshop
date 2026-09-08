@@ -2,7 +2,7 @@
 title: Start implementing from workshop outputs
 description: Turn workshop research, decisions, and backlog outputs into engineering execution using RPI agents
 author: Microsoft
-ms.date: 2026-08-30
+ms.date: 2026-09-08
 ms.topic: tutorial
 keywords:
   - workshop
@@ -45,6 +45,25 @@ The practical sequence is:
 
 > [!TIP]
 > If you want one entry point instead of direct phase prompts, start with `/rpi` or `RPI Agent`. If you want a smaller, more focused action, use a direct phase command like `/rpi-plan`.
+
+## Marketplace implementation handoff
+
+When Marketplace publication is in scope, start from the canonical plan created
+by the Microsoft Marketplace Coach. Its default location is
+`.copilot-tracking/plans/YYYY-MM-DD/marketplace-implementation-plan.md`, where
+`YYYY-MM-DD` is the date of the planning session.
+
+Proceed only when its readiness decision is `Ready to implement` and the
+accountable human owners have approved the handoff. Give `/rpi-plan` the file
+path and ask it to select the approved first implementation slice, preserve the
+recorded dependencies and deferred scope, and turn the acceptance evidence into
+validation tasks. If the decision is `Not ready`, return to the
+[publication planning workshop](partner-workshop-publishing) instead of starting
+implementation.
+
+Do not copy the full handoff into a second document. The Marketplace Coach owns
+its structure; RPI plans reference it as source evidence and record only the
+implementation detail needed for the selected milestone.
 
 ## When to Use `/rpi-plan`
 
@@ -415,29 +434,29 @@ This scenario is common when:
    * Ensure the backlog is prioritized and acceptance criteria are clear
    * Example artifacts to confirm:
      * `.copilot-tracking/research/`: research findings and evidence
-     * `.copilot-tracking/prd-sessions/requirements.md`: approved requirements
+   * `.copilot-tracking/prd-sessions/`: approved requirements PRD
      * `.copilot-tracking/plans/`: implementation plan and phase details
      * `.copilot-tracking/dt/`: design thinking outputs and user journeys
      * `docs/planning/adrs/`: architecture decision records
      * `.copilot-tracking/github-issues/`: prioritized backlog
 
-2. Copy workshop artifacts to your implementation repository
+2. Reference workshop artifacts from your implementation repository
    * Clone or create your implementation repository (e.g., your existing solutions repo)
-   * Create a `/docs/workshop-artifacts/` or `.copilot-tracking/workshop-reference/` directory at the root
-   * Copy the following directories and files:
+   * Keep the workshop repository or approved artifact store as the source of truth; do not create a second copied workshop tree
+   * Record stable links or approved paths to the following production artifact roots:
 
    ```text
-   your-repo/
-     docs/
-       workshop-artifacts/
-         research/           # from .copilot-tracking/research/
-         requirements.md     # from .copilot-tracking/prd-sessions/requirements.md
-         plan.md            # from .copilot-tracking/plans/
-         architecture/      # from docs/planning/adrs/
-         design/            # from .copilot-tracking/dt/
+    workshop-repo/
+       .copilot-tracking/research/
+       .copilot-tracking/prd-sessions/
+       .copilot-tracking/plans/
+       .copilot-tracking/details/
+       .copilot-tracking/dt/
+       .copilot-tracking/github-issues/
+       docs/planning/adrs/
    ```
 
-   * Keep the original folder structure so references are predictable
+   * Keep the original production folder structure so references are predictable
    * Do not copy CI/CD workflows or repo-specific tooling from the workshop repo
 
 3. Create an implementation context document
@@ -452,10 +471,10 @@ This scenario is common when:
    # Workshop Context and Implementation Plan
 
    ## Workshop Outcomes
-   [Link to: docs/workshop-artifacts/requirements.md]
+   [Link to: .copilot-tracking/prd-sessions/]
 
    ## Architecture Decisions
-   [Link to: docs/workshop-artifacts/architecture/]
+   [Link to: docs/planning/adrs/ and .copilot-tracking/details/]
 
    ## First Milestone
    [Description and acceptance criteria]
@@ -465,7 +484,7 @@ This scenario is common when:
    - [assumption 2]
 
    ## Backlog
-   [Link to: docs/workshop-artifacts/backlog.md or GitHub issues]
+   [Link to: .copilot-tracking/github-issues/ or GitHub issues]
    ```
 
 4. Run `/rpi-research` to validate workshop assumptions in your repo
@@ -492,7 +511,7 @@ This scenario is common when:
 
    ```text
    /rpi-plan Create an implementation plan for the first milestone of this project using:
-   - Workshop requirements: [link to requirements.md]
+   - Workshop requirements: [link to .copilot-tracking/prd-sessions/]
    - Current repository structure and patterns
    - Architecture decisions: [link to ADRs]
    
@@ -525,7 +544,7 @@ This scenario is common when:
 
    ```text
    /rpi-review Review the milestone implementation against:
-   1. The workshop requirements: [link to requirements.md]
+   1. The workshop requirements: [link to .copilot-tracking/prd-sessions/]
    2. The approved implementation plan
    3. The repository's code patterns and quality gates
    
@@ -541,7 +560,7 @@ This scenario is common when:
 
 /rpi-implement Execute the approved plan in our repository, following our existing patterns and quality gates.
 
-/rpi-review Review the implementation against the workshop intent [link to requirements.md], the plan, and our code patterns. Identify remaining work.
+/rpi-review Review the implementation against the workshop intent [link to .copilot-tracking/prd-sessions/], the plan, and our code patterns. Identify remaining work.
 ```
 
 ### Checklist for artifact handoff

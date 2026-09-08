@@ -3,7 +3,7 @@ title: HVE Partner Workshop
 description: Workshop for partners to create requirements, context, a backlog, Azure architecture, and publication plans with HVE Core
 sidebar_position: 7
 author: Microsoft
-ms.date: 2026-08-30
+ms.date: 2026-09-07
 ms.topic: tutorial
 keywords:
   - partner workshop
@@ -44,25 +44,23 @@ By the end of the facilitated session, the team can:
 The team should leave with these artifacts in production locations:
 
 ```text
-.copilot-tracking/research/
-  `-- [rpi-research artifacts]
-.copilot-tracking/prd-sessions/
-  `-- requirements.md
-.copilot-tracking/plans/
-  `-- [implementation plan and phase details]
-.copilot-tracking/details/
-  `-- [phase-specific architecture and publication notes]
-.copilot-tracking/dt/
-  `-- [design thinking outputs]
-docs/planning/adrs/
-  `-- [architecture decision records]
-.copilot-tracking/github-issues/
-  `-- [backlog plan]
+.copilot-tracking/
+|-- research/                 [rpi-research artifacts]
+|-- brd-sessions/             [BRD drafts and session state]
+|-- prd-sessions/             requirements.md
+|-- plans/                    [implementation plan and phase details]
+|-- details/                  [phase-specific architecture and publication notes]
+|-- dt/                       [design thinking outputs]
+`-- github-issues/            [backlog plan]
+docs/
+`-- planning/
+    `-- adrs/                 [architecture decision records]
 ```
 
 | Outcome                      | Workshop Artifact Location          | Post-Workshop Path                              |
 |------------------------------|-------------------------------------|-------------------------------------------------|
 | Context and research         | `.copilot-tracking/research/`       | Customer validation and approval                |
+| Business requirements        | `.copilot-tracking/brd-sessions/`   | Validate business scope before product planning |
 | Requirements and PRD         | `.copilot-tracking/prd-sessions/`   | Refine and lock PRD for development             |
 | Implementation Plan          | `.copilot-tracking/plans/`          | Coordinate team delivery across phases          |
 | Architecture and Publication | `.copilot-tracking/details/`        | Implement and validate per-phase deliverables   |
